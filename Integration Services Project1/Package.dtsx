@@ -1,0 +1,870 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/28/2020 5:06:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="M052-016887"
+  DTS:CreatorName="ESLITE\yunchenliou"
+  DTS:DTSID="{5DC839E7-2F09-451D-AD16-455453A1FF9A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{6DAA29CE-C0A5-4E85-A6A4-3D6AEF395BC0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.96.13.ODSDB.buneoliou]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{90E2FCCF-C9F1-4792-A7DA-61BE5A99A28E}"
+      DTS:ObjectName="192.168.96.13.ODSDB.buneoliou">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.96.13;User ID=buneoliou;Initial Catalog=ODSDB;Provider=SQLOLEDB.1;Application Name=SSIS-Package-{90E2FCCF-C9F1-4792-A7DA-61BE5A99A28E}192.168.96.13.ODSDB.buneoliou;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuZyoN+jt7kGwPI9mSipRmQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADf1IWFmMNDjndgofDxSVI3AAAAAASAAACgAAAAEAAAALT/rX4F10mc9ap3LVqiPzMYAAAARyHJ0qPjOViyCLf2m5YGO5ID2A7Mrw7FFAAAAPK3IMvjlb403hhRDGUGSNogdQtC</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[一般檔案連接管理員]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="test"
+      DTS:DTSID="{22A68CA2-EB91-42EB-B304-414778116B3C}"
+      DTS:ObjectName="一般檔案連接管理員">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\Users\yunchenliou\Desktop\test_target.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_id"
+              DTS:DTSID="{F7DCF9A4-3E63-429C-AD88-339CB9530149}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="test"
+              DTS:DTSID="{0369C2E9-BBF3-4CBA-A323-C93B8E7D12B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{C1D0E720-6F1D-4315-9817-249A31DD4BAD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\資料流程工作"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{576754C2-F560-48C4-A12C-DA0C7F52BCA6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="資料流程工作"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\資料流程工作\OLE DB 來源"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="OLE DB 來源"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[CMS_OFFER_MEET]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\OLE DB 來源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.96.13.ODSDB.buneoliou]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.96.13.ODSDB.buneoliou]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出]"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Offer_ID]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Offer_ID]"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Offer_ID]"
+                      name="Offer_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Member_ID]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Member_ID]"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Member_ID]"
+                      name="Member_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Event_Type]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Event_Type]"
+                      length="2"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Event_Type]"
+                      name="Event_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[MEMBER_EN]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[MEMBER_EN]"
+                      length="2"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[MEMBER_EN]"
+                      name="MEMBER_EN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[CLICK_DATE]"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_DATE]"
+                      name="CLICK_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_CNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[CLICK_CNT]"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_CNT]"
+                      name="CLICK_CNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_DATE]"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_DATE]"
+                      name="ETL_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_WORK_DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_WORK_DATE]"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_WORK_DATE]"
+                      name="ETL_WORK_DATE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Offer_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="Offer_ID" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Member_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="Member_ID" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[Event_Type]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      name="Event_Type" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[MEMBER_EN]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      name="MEMBER_EN" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[CLICK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CLICK_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[CLICK_CNT]"
+                      dataType="i4"
+                      name="CLICK_CNT" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_WORK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      name="ETL_WORK_DATE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Offer_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Offer_ID]"
+                      name="Offer_ID" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Member_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Member_ID]"
+                      name="Member_ID" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Event_Type]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[Event_Type]"
+                      name="Event_Type" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[MEMBER_EN]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[MEMBER_EN]"
+                      name="MEMBER_EN" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[CLICK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[CLICK_DATE]"
+                      name="CLICK_DATE" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[CLICK_CNT]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[CLICK_CNT]"
+                      name="CLICK_CNT" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_DATE]"
+                      name="ETL_DATE" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_WORK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_WORK_DATE]"
+                      name="ETL_WORK_DATE" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\一般檔案目的地"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="一般檔案目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案目的地"
+              localeId="1028"
+              name="一般檔案目的地"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定資料將會覆寫或附加至目的地檔案。"
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="指定寫入任何資料之前，要寫入目的地檔案的文字。"
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="如有啟用文字限定詞，請指定寫入目的地檔案之資料中的文字限定詞是否需要逸出。"
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\一般檔案目的地.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[一般檔案連接管理員]"
+                  connectionManagerRefId="Package.ConnectionManagers[一般檔案連接管理員]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入]"
+                  hasSideEffects="true"
+                  name="一般檔案目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[Offer_ID]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Offer_ID"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[customer_id]"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Offer_ID]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[Member_ID]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Member_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[test]"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Member_ID]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[Event_Type]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Event_Type"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 1]"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Event_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[customer_id]"
+                      codePage="950"
+                      dataType="str"
+                      length="255"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[test]"
+                      codePage="950"
+                      dataType="str"
+                      length="255"
+                      name="test" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      length="255"
+                      name="資料行 1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\排序"
+              componentClassID="Microsoft.Sort"
+              contactInfo="排序;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="無法在來源排序資料時，依遞增或遞減順序排序輸入資料。例如，先依 [客戶識別碼] 排序銷售資料，然後再將它寫入一般檔案並且傳遞給其他部門。注意: 不建議對大型資料流程採用這種轉換。"
+              name="排序"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指出排序轉換是否移除有重複排序值的資料列。"
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於排序之執行緒最大數目。"
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\排序.Inputs[排序輸入]"
+                  name="排序輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[Offer_ID]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Offer_ID"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Offer_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[Member_ID]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Member_ID"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Member_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[Event_Type]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Event_Type"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Event_Type]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[MEMBER_EN]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="MEMBER_EN"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[MEMBER_EN]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[CLICK_DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CLICK_DATE"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[CLICK_CNT]"
+                      cachedDataType="i4"
+                      cachedName="CLICK_CNT"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_CNT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[ETL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETL_DATE"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\排序.Inputs[排序輸入].Columns[ETL_WORK_DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ETL_WORK_DATE"
+                      lineageId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_WORK_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。"
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行的排序次序。"
+                          name="NewSortKeyPosition">8</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\排序.Outputs[排序輸出]"
+                  isSorted="true"
+                  name="排序輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Offer_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Offer_ID]"
+                      name="Offer_ID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Offer_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Member_ID]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Member_ID]"
+                      name="Member_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Member_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Event_Type]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Event_Type]"
+                      name="Event_Type"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[Event_Type]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[MEMBER_EN]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[MEMBER_EN]"
+                      name="MEMBER_EN"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[MEMBER_EN]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[CLICK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[CLICK_DATE]"
+                      name="CLICK_DATE"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_DATE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[CLICK_CNT]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[CLICK_CNT]"
+                      name="CLICK_CNT"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[CLICK_CNT]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[ETL_DATE]"
+                      name="ETL_DATE"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_DATE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[ETL_WORK_DATE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[ETL_WORK_DATE]"
+                      name="ETL_WORK_DATE"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定與此輸出資料行相關聯之輸入資料行的譜系識別碼。"
+                          name="SortColumnId">#{Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[ETL_WORK_DATE]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\資料流程工作.Paths[OLE DB 來源輸出]"
+              endId="Package\資料流程工作\排序.Inputs[排序輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\資料流程工作\OLE DB 來源.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[排序輸出]"
+              endId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入]"
+              name="排序輸出"
+              startId="Package\資料流程工作\排序.Outputs[排序輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作"
+          TopLeft="159.166660341952,67.785710822563" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\資料流程工作">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\資料流程工作\OLE DB 來源"
+          TopLeft="194.999992251396,70.571424965956" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\資料流程工作\排序"
+          TopLeft="221.666657858425,159.714277554532" />
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[OLE DB 來源輸出]"
+          TopLeft="271.583325054911,112.571424965956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.142852588576"
+              Start="0,0"
+              End="0,39.642852588576">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.642852588576" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\資料流程工作\一般檔案目的地"
+          TopLeft="222.499991158645,267.428557765728" />
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[排序輸出]"
+          TopLeft="273.166657858425,201.714277554532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.8333333002197,65.714280211196"
+              Start="0,0"
+              End="30.8333333002197,58.214280211196">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.857140105598" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.857140105598"
+                    Point2="0,32.857140105598"
+                    Point3="4,32.857140105598" />
+                  <mssgle:LineSegment
+                    End="26.8333333002197,32.857140105598" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.8333333002197,32.857140105598"
+                    Point2="30.8333333002197,32.857140105598"
+                    Point3="30.8333333002197,36.857140105598" />
+                  <mssgle:LineSegment
+                    End="30.8333333002197,58.214280211196" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\資料流程工作\OLE DB 來源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
