@@ -11,8 +11,8 @@
   DTS:LocaleID="1028"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{6DAA29CE-C0A5-4E85-A6A4-3D6AEF395BC0}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{063E4B06-4916-485A-90E1-AA46EA9CBED4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuZyoN+jt7kGwPI9mSipRmQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADf1IWFmMNDjndgofDxSVI3AAAAAASAAACgAAAAEAAAALT/rX4F10mc9ap3LVqiPzMYAAAARyHJ0qPjOViyCLf2m5YGO5ID2A7Mrw7FFAAAAPK3IMvjlb403hhRDGUGSNogdQtC</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuZyoN+jt7kGwPI9mSipRmQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABB96P7xri+AagdDt5ttglgAAAAAASAAACgAAAAEAAAAFGspVnGvjpIfxkia9hoB7MYAAAAM8D9nlVtf85l3G094RE86MckapSiYqj0FAAAABC4DE/8r72htYVE/KUvM7FOoM2W</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -54,7 +54,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_id"
-              DTS:DTSID="{F7DCF9A4-3E63-429C-AD88-339CB9530149}"
+              DTS:DTSID="{09A06C2B-8AC1-401B-A6DA-B31294FE71BF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -62,15 +62,23 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="test"
-              DTS:DTSID="{0369C2E9-BBF3-4CBA-A323-C93B8E7D12B9}"
+              DTS:DTSID="{2019C3DF-07F0-4989-AF71-23A1D0AA1360}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{2B36DEAD-852F-46A1-BB9B-5FCE5E75A328}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="資料行 1"
-              DTS:DTSID="{C1D0E720-6F1D-4315-9817-249A31DD4BAD}"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{E57402BB-DB20-4671-B088-08C01DDAE37B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -418,6 +426,15 @@
                       cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 1]"
                       lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Event_Type]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[MEMBER_EN]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="MEMBER_EN"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 2]"
+                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[MEMBER_EN]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -439,6 +456,12 @@
                       dataType="str"
                       length="255"
                       name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      length="255"
+                      name="資料行 2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
