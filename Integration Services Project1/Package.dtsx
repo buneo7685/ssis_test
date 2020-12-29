@@ -11,8 +11,8 @@
   DTS:LocaleID="1028"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{3313671C-0948-4893-B360-E75E5AFCF97A}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DE9B4FED-EEA1-48BD-A7EA-77F9B7943A91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuZyoN+jt7kGwPI9mSipRmQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADLkIac2umJsVpkiNX5sjzPAAAAAASAAACgAAAAEAAAAPtK15gq826CgD5HOtOzAZcYAAAAtLdd2hLpAHGWLNxVmgQv1gGY+P9m8CLeFAAAAKNkCUTx9XmIWyYjseNITVrBm4QH</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuZyoN+jt7kGwPI9mSipRmQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABouLjuHkTph2C8ylfwjsoJAAAAAASAAACgAAAAEAAAAHW2/5YTRztQfSFP3u1L6WkYAAAA7sjhSk1ksRuNhGIOH0iwtD1o2ofORwVWFAAAAGIsREKo0cKL5rZ9LLCYFPRJskYM</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,19 +50,11 @@
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="customer_id"
-              DTS:DTSID="{E9E806B4-A45F-4B0A-A4EB-592A2A64C831}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="資料行 0"
-              DTS:DTSID="{941D9456-9125-4A21-9D7A-ABFDD8B5BAB0}"
+              DTS:ObjectName="customer_id"
+              DTS:DTSID="{C32D4972-085C-43DB-9787-5465B9614587}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -392,15 +384,6 @@
                       cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[customer_id]"
                       lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Offer_ID]" />
-                    <inputColumn
-                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].Columns[Member_ID]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="Member_ID"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 0]"
-                      lineageId="Package\資料流程工作\排序.Outputs[排序輸出].Columns[Member_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -410,12 +393,6 @@
                       dataType="str"
                       length="255"
                       name="customer_id" />
-                    <externalMetadataColumn
-                      refId="Package\資料流程工作\一般檔案目的地.Inputs[一般檔案目的地輸入].ExternalColumns[資料行 0]"
-                      codePage="950"
-                      dataType="str"
-                      length="255"
-                      name="資料行 0" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -764,13 +741,13 @@
           Id="Package\資料流程工作\一般檔案目的地"
           TopLeft="183.333326048322,267.428557765728" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\資料流程工作\OLE DB 來源"
-          TopLeft="194.999992251396,70.571424965956" />
-        <NodeLayout
           Size="103,42"
           Id="Package\資料流程工作\排序"
           TopLeft="221.666657858425,159.714277554532" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\資料流程工作\OLE DB 來源"
+          TopLeft="194.999992251396,70.571424965956" />
         <EdgeLayout
           Id="Package\資料流程工作.Paths[排序輸出]"
           TopLeft="273.166657858425,201.714277554532">
